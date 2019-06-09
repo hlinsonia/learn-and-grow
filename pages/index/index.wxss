@@ -1,0 +1,265 @@
+/**index.wxss**/
+button,input {
+  padding: 0;
+  margin: 0;
+}
+.model{
+  background:#fff;
+  position:fixed;
+  z-index:1000000000;
+  width:100%;
+  height: 100%;
+  opacity: 0;
+}
+.model .modelBody{
+  width:91%;
+  height:110rpx;
+  padding:30rpx;
+  font-size:35rpx;
+  line-height:60rpx;
+  padding-left:30rpx;
+  padding-top:40rpx;
+}
+.model .btns{
+  width:100%;
+  height: 100%;
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid #ECECED;
+}
+.model .btns button{
+  width:100%;
+  height: 100%;
+  display:inline-block;
+  padding:0rpx;
+  background:#fff;
+}
+.model .btns button::after {
+  border: none;
+}
+.model .btns .agree {
+  color:#21B922;
+}
+.mask{
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;
+}
+@keyframes chagecolor
+{
+  0%   {background-image: url('http://static.tphoto.com.cn/common/images/micro/wexinb2/chat_red.png');}
+  25%  {background-image: url('http://static.tphoto.com.cn/common/images/micro/wexinb2/chat_yellow.png');}
+  50%  {background-image: url('http://static.tphoto.com.cn/common/images/micro/wexinb2/chat_red.png');}
+  100% {background-image: url('http://static.tphoto.com.cn/common/images/micro/wexinb2/chat_blank.png');}
+}
+.top{
+  width:750rpx;
+  background: #ffc3cf;
+}
+.top .banarImage{
+  width: 100%;
+  height:auto;
+}
+.top .banarImage image{
+  width:100%;
+  height: auto;
+  display:block;
+}
+.top .banarImage:first-child {
+  height: 320rpx;
+}
+.form{
+  width: 100%;
+  margin:0 auto;
+  background: #f8f9f9;
+}
+.title{
+  width: 100%;
+  height: 120rpx;
+  text-align:center;
+  border-bottom: 1px solid #aaa;
+  font-size:50rpx;
+  font-weight:600;
+  line-height: 120rpx;
+}
+
+.section{
+  margin:80rpx 20rpx;
+}
+.sec-fir{
+  margin:40rpx 20rpx 80rpx;
+}
+
+.input-last{
+  border-top:1px solid #eee;
+  padding:30rpx 100rpx 50rpx;
+}
+.input-last button{
+  height: 100rpx;
+  background: #dd0000;
+  border:1px solid #d10000;
+  border-radius: 10rpx;
+  font-size:16px;
+  line-height:100rpx;
+  text-align:center;
+  color:#fff;
+  font-weight: bold;
+}
+.section .input-top-name{
+  font-size:14px;
+  margin-bottom:20rpx;
+  color:#40555a;
+  font-weight: bold;
+}
+.section .input-top-name text{
+  color:#f5381a;
+  font-weight: bold;
+}
+.section .input-top-des{
+  font-size:12px;
+  color:#616161;
+  margin-bottom: 20rpx;
+  font-weight:normal;
+}
+.section .input-con{
+  width: 50%;
+  height:54rpx;
+  line-height:54rpx;
+  padding:10rpx 60rpx 10rpx 0;
+  font-size:36rpx;
+  border:1px solid #ccc;
+  border-radius:10rpx;
+  background: #fff;
+}
+.section .input-con.phone {
+  width: auto;
+  border: 0;
+  background-color: transparent;
+}
+.section .input-con .text-phone {
+  width: 46%;
+  height:54rpx;
+  line-height:54rpx;
+  padding:10rpx 0;
+  font-size:36rpx;
+  border-radius:10rpx;  
+  border:1px solid #ccc;
+}
+.section .input-con .text-phone image {
+  margin: 0;
+  vertical-align: top
+}
+.section .btn-getphone {
+  display: inline-block;
+  text-align: center;
+  font-size: 22rpx;
+  height:40rpx;
+  line-height:40rpx;
+  color: #fff;
+  padding:0 15rpx;
+  margin: 18rpx 0 0 15rpx;
+  background-color: #007DDE;
+}
+.sec-fir .input-con{
+  width: 50%;
+}
+.input-con{
+  display:flex;
+}
+.input-con image{
+  width: 50rpx;
+  height: 50rpx;
+  margin:0 10rpx;
+}
+.input-con input,.input-con picker{
+  height: 100%;
+  margin:0 10rpx;
+  flex:1;
+}
+.footImage{
+  width:750rpx;
+}
+.footImage image{
+  width:100%;
+  display:block;
+}
+.footImage:last-child {
+  margin-bottom:20px;
+}
+
+.view-video {
+  width: 320px;
+  height: 265px;
+  text-align: center;
+  margin: 80rpx auto 30rpx;
+  position: relative;
+}
+.view-video video {
+  width: 320px;
+  height: 225px;
+  display: block;
+}
+.btn-area {
+  width: 100%;
+  height: 60rpx;
+  margin-top: 15rpx;
+}
+.btn-area input {
+  display: inline-block;
+  width: 74%;
+  border: 1px solid #fff;
+  text-align: left;
+  padding-left: 1%;
+  font-size: 0.7rem;
+  border-radius: 10rpx;
+  color: #fff;
+}
+.btn-area button {
+ display: inline-block;
+ width: 130rpx;
+ height:50rpx;
+ margin-left: 10rpx;
+ text-align: center;
+ line-height: 50rpx;   
+ font-size: 0.7rem;
+ border-radius: 15rpx;
+ background-color: #000;
+ color: #fff;
+ vertical-align: top;
+}
+.zxnow {
+  width: 100%;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  font-size: 35rpx;
+  border-radius: 0;
+  border: 1px solid transparent;
+  color: #000;
+  position: fixed;
+  bottom: 0;
+  color: #fff;
+  right:0;
+  z-index: 999;
+  background-color: #53BCFD;
+  text-align: center
+}
+.container {
+  height: auto;
+  margin-bottom: 2.5rem;
+}
+.zxnow button,.zxnow navigator {
+  border-radius: 0;
+  font-size: 1rem;
+  display: inline-block;
+  border: 0;
+  vertical-align: middle;
+  color:#fff;  
+}
+.zxnow image {
+  width: 30px;
+  height: 40rpx;
+  float: none;
+  vertical-align: middle;
+  margin-right: 0.1rem;
+}

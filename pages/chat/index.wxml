@@ -1,0 +1,30 @@
+<view class="container" id="container">
+  <view class="top-font">
+    <text>客服对话中</text>
+  </view>
+  <view class="chat-items">
+    <view class="row item clearfix" wx:for="{{items}}">
+      <view class="col-2 portrait">
+        <image mode="widthFix" src="{{item.logo}}"></image>
+      </view>
+      <view class="col-10 kfc">
+        <view class="wrap">
+          <text>{{item.title}}</text>
+          <view class="c">
+            <text>{{item.content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view id="screenVisible"></view>
+<view class="row btm-input" fixed="true">
+    <view class="col-9">
+      <button open-type="contact"><input disabled="true" placeholder-class="plcolor" type="text" placeholder="请输入文字" class="input-chat"></input></button>
+    </view>
+    <view class="col-3">
+      <button class="send" open-type="contact">发送</button>
+    </view>
+</view>

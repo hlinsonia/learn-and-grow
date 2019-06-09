@@ -1,0 +1,81 @@
+<!--index.wxml-->
+<!-- 获取用户手机号自定义弹框开始 -->
+  <view wx:if="{{PshowModel}}" class="model">
+    <view class="btns">
+      <button open-type="getPhoneNumber" class="agree" bindgetphonenumber="agreeGetPhoneNumber" lang="zh_CN" >去设置</button>
+    </view>
+  </view>
+  <view wx:if="{{PshowModel}}" class="mask"></view>
+  <!-- 自定义弹框结束 -->
+<view class="container"> 
+    <view class="top">
+      <view id="green" class="">
+        <!--
+        <view class="banarImage" wx:for="{{bannerUrl}}">
+          <image mode="widthFix" src="{{item}}"></image>
+        </view>
+        -->
+        <view class="banarImage">
+          <image mode='widthFix' src="{{bannerUrl[0]}}"></image>
+        </view>
+        <view class="view-video" id="view-video">
+          <video id="tvideo" enable-danmu danmu-btn danmu-list='{{danmulist}}' autoplay  bindtimeupdate="getvideotime" bindended="getvideoend" controls src="{{videourl}}" bindplay="playcontinue" bindended="playend" ></video>
+          <view class="btn-area">
+            <!--<button bindtap="bindButtonTap">获取视频</button>-->
+            <input id="danmutext" bindblur="getInput" value="{{danmutext}}"/>
+            <button bindtap="bindSendDanmu">发送弹幕</button>
+          </view>
+        </view>
+        <view class="banarImage">
+          <image mode='widthFix' src="{{bannerUrl[1]}}"></image>
+        </view>
+      </view>
+      
+      <view class="form" id="Form">
+        <view class="title">{{formtitle}}</view>
+        <view class="section sec-fir">
+          <view class="input-top-name">{{nickshot}} <text> *</text></view>
+          <view class="input-con">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" name="地区">
+              <view class="picker">
+                {{array[index]}}
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="section">
+          <view class="input-top-name">{{nickphone}}<text> </text></view>
+          <view class="input-con phone">            
+            <!--<input type="number" maxlength="11" name="手机号" value="{{inputPhoneVal}}" bindinput="inputPhone"/>-->
+            <view class="text-phone"><image src="http://static.tphoto.com.cn/common/images/icon/phone.png"></image>{{inputPhoneVal}}</view>
+            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="btn-getphone">告诉我们手机号</button>
+          </view>
+        </view>
+        <view class="section">
+          <view class="input-top-name">{{nickweixin}}</view>
+          <view class="input-top-des">{{weixintip}}</view>
+          <view class="input-con">
+            <!-- <image src="http://new.tphoto.cn/skins/2016/icon/wechat.png"></image> -->
+            <input name="wx/qq" value="{{inputContactVal}}" bindinput="inputContact" bindfocus="inputContactFocus"/>
+          </view>
+        </view>
+        <view class="input-last">
+          <button fromType="submit" disabled="{{disabled}}" bindtap="isSubmit">{{submitstatus}}</button>
+        </view>
+      </view>
+    </view>
+    <view class="footImage" wx:for="{{footImageUrl}}" >
+        <image src="{{item}}" mode='widthFix' ></image>        
+    </view>
+    <view class="zxnow">
+      <image src="http://static.tphoto.com.cn/common/images/micro/wexinb2/icon1.png"></image>
+        <!--<button open-type='contact' session-from="小程序C表单{{advertitle}}" send-message-title="小程序C表单{{advertitle}}" bindcontact="wechat" plain="true">在线客服</button>
+        -->
+        <navigator open-type='navigate' url="/pages/chat/index">在线客服</navigator>
+    </view>
+    
+  <!-- </scroll-view> -->
+  <!-- <view class="footer" bindtap="picker"> -->
+    <!-- <text >立即咨询</text> -->
+  <!-- </view> -->
+</view>
