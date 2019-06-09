@@ -5,7 +5,7 @@ var videonowtime = 0;
 var socketTask;
 Page({
   data: {
-    bartitle:'太郎花子婚纱摄影',
+    bartitle:'',
     userInfo: {},
     submitstatus: "",
     array: [],
