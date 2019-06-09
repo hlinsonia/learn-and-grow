@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title></title>
+<link rel="stylesheet" type="text/css" href="//static.tphoto.com.cn/common/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="//static.tphoto.com.cn/common/css/v182001.css">
+<style>
+em,i,b {font-style: normal;}
+body,p,span,input,button {font-family: 微软雅黑;}
+ul,ol,li {font-style: normal;list-style: none;padding: 0;margin: 0;}
+body {background: #D2EAEA;}
+
+#mask{display:none;background:#000;position:fixed;left:0;top:0;z-index:10;width:100%;height:100%;opacity:.8;z-index:999}
+.login-popup {width: 100%; display:none;padding:0;/*border:1px solid #ddd;*/float:left;font-size:1.2em;position:fixed;top:50%;left:50%;z-index:99999;/*box-shadow:0 0 20px #999;-moz-box-shadow:0 0 20px #999;-webkit-box-shadow:0 0 20px #999;border-radius: 0.5rem;*/}
+.close{margin-left: 41%;z-index: 9999;}
+.login-popup .signin{position: relative;}
+#tip {color: #ff0000;font-size: 16px;}
+
+.bg{background-color: #fff;width: 100%;}
+.bg .btns{color: #fff;background-color: #DE2723; width: 50%;height: 3rem;margin-left: 25%;border: none;outline: none;margin-top: 15px;margin-bottom: 15px;font-size: 1.1rem;}
+.bg div:first-child {margin-bottom: 15px;width: 85%;height: 3rem;margin-left: 7%;padding-top: 15px;}
+.bg div+div {margin-top: 15px;margin-bottom: 15px;width: 85%;height: 3rem;margin-left: 7%;}
+.bg input{border: 1px solid #959595;line-height: 2rem;padding-left: 6px; color: #000;border-radius: 8px; background-color: #E5E5E5; width: 100%;height: 100%;outline: none;font-size: 1.1rem;}
+.bg .btn{color: #fff;border-radius: 8px; background-color: #DE2723; width: 86%;height: 3rem;margin-left: 7%;border: none;outline: none;margin-top: 15px;margin-bottom: 15px;font-size: 1.1rem;}
+
+@media(min-width: 750px){
+.login-popup {width: 750px;}
+.container {width: 750px;}
+}
+
+    .lunb{ position:relative; width:100%;  height:auto; overflow:hidden; margin:0 auto;}
+    .lunb .hd{ position:absolute; height:28px;line-height: 28px; bottom:1px; right:0; z-index:1; width: 100%;text-align: right;box-sizing:border-box;padding:0 16px;display: none;}
+    .lunb .op {width: 14px;height: 100%;position: absolute;left: 0;z-index: 10;}
+    .lunb .hd li{ display:inline-block; width:7px; height:10px;
+      text-indent:-9999px;font-size:0; overflow:hidden; margin:0 4px;  background:url(http://m.tphoto.cn/theme/images/silder-border.png) no-repeat;background-size:100% 100%; }
+    .lunb .hd li.on{ background:#c12529;background:url(http://m.tphoto.cn/theme/images/silder-border2.png) no-repeat;background-size:90% 80%; }
+    .lunb .bd{ position:relative; z-index:0; text-align: center;}
+    .lunb .bd li{ position:relative;  }
+    .lunb .bd li img{ max-width:100%;  height:auto; display:block; margin: 0 auto;  }
+    .lunb .bd li a{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
+    .lunb .bd li .tit{ display:block; width:100%;  position:absolute; bottom:0; text-indent:10px; height:28px; line-height:28px; color:#fff;   }
+    .lunb .hd {display:block;}
+
+    .bottom-wraps{width:100%;position:fixed;bottom:0;height:3.85rem;background: url(//www.tphoto.cn/public/imgtg/2019/06/a_26.png)no-repeat center center scroll transparent;background-size: 100% 100%;display: flex;z-index: 999}
+
+    ::-webkit-input-placeholder{color:#fff;font-size: 1rem;}
+:-moz-placeholder{color:#fff;font-size: 1rem;}
+::-moz-placeholder{color:#fff;font-size: 1rem;}
+:-ms-input-placeholder{color:#fff;font-size: 1rem;}
+    .bg1{background-color: #fff;border: 0px solid red;display: flex;padding-top: 1%;}
+    .bg1-1{border: 1px solid #000;width: 45%;height: 2rem;float: left;margin-left: 3%;text-align: center;line-height: 2rem;}
+    .bg1-2{border: 1px solid #000;width: 45%;height: 2rem;float: left;margin-left: 3%;text-align: center;line-height: 2rem;}
+    .bg2{background-color: #fff;border: 0px solid red;display: flex;}
+    .bg2-1{border: 1px solid #000;width: 94%;height: auto;margin-left: 3%;text-align: left;}
+    .bg2-1 label{line-height: 3rem;margin-left: 5%;font-weight: 600;}
+    .bg2-1 img{width: 35%;float: right;padding: 2%;}
+
+    .actives{border: 1px solid #fff;background-color: #E42A63; width: 45%;height: 2rem;float: left;margin-left: 3%;text-align: center;line-height: 2rem;}
+    .actives p{color: #fff;}
+
+    .forms{position: absolute;top: 41%;left: 15%; background-color: transparent;width: 70%;height: 200px;border: 0px solid #000;}
+    .forms input{border: 2px solid #fff;height: 2.3rem;width: 68%;margin-top: 14%;margin-left: 12%;background: transparent;color: #fff;text-align: center;border-radius: 22px;outline: none;line-height: 2rem;}
+    .forms img{width: 75%;margin-top: 5%;margin-left: 12%;}
+
+    @media (min-width:1200px){.bottom-wraps{width:750px;height: 4.5rem;}
+    .bg1-1{border: 1px solid #000;width: 45%;height: 3rem;float: left;margin-left: 3%;text-align: center;line-height: 3rem;}
+    .bg1-2{border: 1px solid #000;width: 45%;height: 3rem;float: left;margin-left: 3%;text-align: center;line-height: 3rem;}
+    .bg2-1 label{line-height: 6rem;margin-left: 5%;font-weight: 600;}
+    .forms input {border: 2px solid #fff;height: 3.5rem;width: 68%;margin-top: 14%;margin-left: 12%;background: transparent;color: #fff;text-align: center;border-radius: 50px;outline: none;line-height: 2rem;}
+    }
+</style>
+<script type="text/javascript">
+    var useragent = navigator.userAgent;
+    if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
+        alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+        var opened = window.open('about:blank', '_self');
+        opened.opener = null;
+        opened.close();
+    }
+</script>
+<script src="//weix.tphoto.cn/public/award/js/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="lunb" id="lunb">
+          <div class="lun">
+            <ul>
+                <li><img class="img-responsive" _src="http://www.tphoto.cn/public/imgtg/2019/06/a_19.jpg" src="//static.tphoto.com.cn/common/images/loading.gif"></li>
+                <li><img class="img-responsive" _src="http://www.tphoto.cn/public/imgtg/2019/06/a_20.jpg" src="//static.tphoto.com.cn/common/images/loading.gif"></li>
+                <li><img class="img-responsive" _src="http://www.tphoto.cn/public/imgtg/2019/06/a_21.jpg" src="//static.tphoto.com.cn/common/images/loading.gif"></li>
+                <li><img class="img-responsive" _src="http://www.tphoto.cn/public/imgtg/2019/06/a_22.jpg" src="//static.tphoto.com.cn/common/images/loading.gif"></li>
+                <li><img class="img-responsive" _src="http://www.tphoto.cn/public/imgtg/2019/06/a_23.jpg" src="//static.tphoto.com.cn/common/images/loading.gif"></li>
+                <li><img class="img-responsive" _src="http://www.tphoto.cn/public/imgtg/2019/06/a_24.jpg" src="//static.tphoto.com.cn/common/images/loading.gif"></li>
+            </ul>
+          </div>
+          <div class="hd">
+            <ul>
+
+            </ul>
+          </div>
+        </div>
+        <div class="not-word">
+            <img id="online" class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_01.jpg" /><br/>
+        </div>
+        <div class="bg1">
+            <div class="bg1-1 active actives">
+                <p>3999-5999元</p>
+            </div>
+            <div class="bg1-2 active">
+                <p>6999-8999元</p>
+            </div>
+        </div>
+
+        <div class="bg1" style="padding-top: 3%;">
+            <div class="bg1-1 active">
+                <p>10999-13999元</p>
+            </div>
+            <div class="bg1-2 active">
+                <p>25999元及以上</p>
+            </div>
+        </div>
+
+        <div class="not-word">
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_03.jpg" /><br/>
+        </div>
+
+        <div class="bg2 zx">
+            <div class="bg2-1">
+                <label for="xq1">婚期已定，半年内</label>
+                <img id="xq1" class="xq1" src="//www.tphoto.cn/public/imgtg/2019/06/a_25.png" />
+            </div>
+        </div>
+        <div class="bg2 zx" style="padding-top: 3%;">
+            <div class="bg2-1">
+                <label for="xq1" >婚期已定，一年内</label>
+                <img id="xq1" class="xq1" src="//www.tphoto.cn/public/imgtg/2019/06/a_25.png" />
+            </div>
+        </div>
+        <div class="bg2 zx" style="padding-top: 3%;">
+            <div class="bg2-1">
+                <label for="xq1">婚期已定，两年内</label>
+                <img id="xq1" class="xq1" src="//www.tphoto.cn/public/imgtg/2019/06/a_25.png" />
+            </div>
+        </div>
+        <div class="bg2 zx" style="padding-top: 3%;">
+            <div class="bg2-1">
+                <label for="xq1">暂无婚期，不确定</label>
+                <img id="xq1" class="xq1" src="//www.tphoto.cn/public/imgtg/2019/06/a_25.png" />
+            </div>
+        </div>
+
+        <div class="not-word" style="margin-bottom: 3rem;">
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_05.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_06.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_07.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_08.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_09.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_10.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_11.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_12.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_13.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_14.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_15.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_16.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_17.jpg" /><br/>
+            <img class="img-responsive" data-original="//www.tphoto.cn/public/imgtg/2019/06/a_18.jpg" /><br/>
+        </div>
+
+        <div class="bottom-wraps zx">
+        </div>
+
+        <form role="form" action="/forms/gift" method="post">
+          <input type="hidden" name="yad" value="" id="yad" />
+          <input type="hidden" name="local" value="" id="local" />
+          <input type="hidden" name="bt" value="{{bt}}" />
+          <input type="hidden" name="rm" id="rm" value="" />
+          <input type="hidden" name="mk" value="{{mk}}" />
+          <input type="hidden" name="at" value="{{auto}}" />
+          <input type="hidden" name="relp" id="relp" value="" />
+          <input name="sd" id="sd" value="{{sd}}" type="hidden">
+            <div id="login-box" class="login-popup">
+                <a class="close" href="javascript(0)">
+                    <img id="close" src="http://weix.tphoto.cn/public/award/img/170124/close_pop.png" class="btn_close close" title="点我关闭" alt="Close">
+                </a>
+                <div class="signin">
+                    <div class="not-word">
+                        <img style="width: 100%;" src="//www.tphoto.cn/public/imgtg/2019/05/g_21.png" /><br/>
+                    </div>
+                        <div class="forms">
+                            <input class="phone" name="phone" placeholder="请输入您的手机号" maxlength="11"></input>
+                            <!--<img onclick="submitData(event);return false;" src="//www.tphoto.cn/public/imgtg/2019/05/g_22.png" />-->
+                            <img id="submitBtn" src="//www.tphoto.cn/public/imgtg/2019/05/g_22.png" />
+                        </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="tip" style="position: fixed;top: 40%;left: 0;z-index: 9999;width: 100%;height: auto;display: none">
+            <div class="tipinfo" style="width: 85%;height: 3rem;border-radius: 10px;padding: 1rem 0 0;line-height: 1.8rem;margin: 0 auto;border:1px solid #ccc;    color: #ff0000;
+            background-color: #000;text-align:center"></div>
+        </div>
+
+
+    </div>
+<script src="//apis.map.qq.com/tools/geolocation/min?key=T2HBZ-X4NKX-PSW4Z-7CPRL-HMDT6-G5B4W&referer=\u83b7\u53d6\u5b9a\u4f4d"></script>
+<script src="//static.tphoto.com.cn/common/js/3c.js"></script>
+<script src="//static.tphoto.com.cn/common/js/TouchSlide.1.1.js"></script>
+<script>
+    TouchSlide({slideCell:"#lunb",titCell:".hd ul",interTime:2800,delayTime:800,switchLoad:"_src",mainCell:".lun ul",effect:"leftLoop", autoPage: true, autoPlay: true});
+
+    document.querySelector("#lunb").addEventListener("touchstart",function(e){
+        e.preventDefault();
+    },false);
+
+     $(".zx").click(function(i){!function(){var i=$("#login-box"),n=$(window);i.fadeIn(300);var e=(n.height()-i.height())/2,t=(n.width()-i.width())/2;i.width()>n.width()&&(t=0),i.css({top:e,left:t}),$("body").append('<div id="mask"></div>'),$("#mask").fadeIn(300),$("a.close, #mask").live("click",function(){return $("#mask , .login-popup").fadeOut(300,function(){$("#mask").remove()}),!1})}()});var issubmit=!1,showtip=function(i){var n=document.querySelector(".tip"),e=document.querySelector(".tipinfo");n.style.display="block",n.style.zIndex=99999,e.innerHTML=i,window.setTimeout(function(){n.style.display="none",e.innerHTML=""},2800)};function submitData(i){var n=(i=i||window.event).target||i.srcElement,e=$(n).parents("form");if(issubmit)return alert("您已提交过，我们将会第一时间联系您！"),!1;var t="";return 0<e.find(".phone").length&&(t=e.find(".phone").val()),console.log(t),0<e.find(".weixin").length&&e.find(".weixin").val(),""==t?(showtip("电话号码必填哦,亲"),!1):""==t||!isNaN(t)&&11==t.length?(n.innerHTML="正在提交...",n.disabled=!0,n.style.color="#666",n.style.border="1px solid #ccc",e.find("#local").val(window.location.href),e.find("#rm").val(getElseInput()),e.find("#yad").val("undefined"!=typeof getyad?getyad:""),"undefined"!=window.realpla&&e.find("#relp").val(window.realpla),issubmit=!0,void e[0].submit()):(showtip("您的手机号不正确"),!1)}$(".active").click(function() {$(this).addClass('actives');$(this).siblings().removeClass('actives');$(this).parents('.bg1').siblings('.bg1').children('.active').removeClass('actives');});
+
+</script>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+var appid,nonceStr,timestamp,signature,cardature,clickid,ul;
+function GetQueryString(name)
+      {
+          var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+          var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+          if(r!=null)return  unescape(r[2]); return null;
+      }
+      //ul = window.location.href;
+clickid = GetQueryString("gdt_vid");
+
+$.ajax({
+    type: "POST",
+    url: "http://weix.52099.cn/public/wxcard/index",
+    data: {
+      url: "same-1185-1206.html"
+    },
+    timeout: 1e4,
+    cache:false,
+    dataType: "json",
+    async:false,
+    success: function(a) {
+        appid = a.signPackage.appId,
+        nonceStr = a.signPackage.nonceStr,
+        timestamp = a.signPackage.timestamp,
+        signature = a.signPackage.signature,
+        cardature = a.cardPackage.cardature,
+        tickt = a.cardPackage.api_tiket,
+        nonceStr2 = a.cardPackage.nonceStr,
+        card_id = a.cardPackage.card_id,
+        timestamp2 = a.cardPackage.timestamp,
+        wx.config({
+            appId: appid,
+            timestamp: timestamp,
+            nonceStr: nonceStr,
+            signature: signature,
+            jsApiList: [""]
+        })
+    },
+    error: function() {
+        alert("系统繁忙，请稍后再试！")
+    }
+}),
+
+wx.ready(function() {
+    document.querySelector('#submitBtn').onclick = function (e) {
+            //用户信息合法并上报
+      //var ul = window.location.href;
+            $.ajax({
+                type: "POST",
+                url: "http://weix.52099.cn/public/wxcard/index",
+                data: {
+                    click_id: clickid,
+                    ul: "same-1185-1206.html"
+                },
+                timeout: 1e4,
+                dataType: "json",
+                async: false,
+                success: function(data) {},
+                error: function(data) {}
+            });
+            submitData(e);
+    };
+});
+</script>
+</body>
+</html>
+
