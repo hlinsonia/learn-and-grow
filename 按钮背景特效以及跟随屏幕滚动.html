@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			.btn {
+				display: block;
+				width: 200px;
+				height: 50px;
+				/*margin: 50px auto;*/
+				font-size: 20px;
+				text-shadow: 0px 0px 3px #ccc;
+				/*box-shadow:0px 0px 3px #333;*/
+				line-height: 50px;
+				text-align: center;
+				color: #fff;
+				text-decoration: none;
+				background: url(images/paopao.png) top left, url(images/paopao.png) bottom right, -webkit-linear-gradient(top, #6abeff, #1778c3);
+				border-radius: 10px;
+				font-weight: bold;
+				transition: all 1s ease 0s;
+				border: none;
+				outline: none;
+				position: absolute;
+				right: 0;
+			}
+			
+			.btn:hover {
+				background-position: bottom right, bottom left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="height: 20000px;position: relative;">
+			<button id="rightmenu" class="btn">按&nbsp;钮</button>
+		</div>
+		<script src="http://static.tphoto.com.cn/common/js/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(window).scroll(function () {
+				$(".btn").stop().animate({ "top": ($(window).height() + $(window).scrollTop() - ($(window).height() + $(".refloat").height()) / 2) < 350 ? 350 :
+               $(window).height() + $(window).scrollTop() - ($(window).height() + $(".refloat").height()) / 1.5  + 100
+           }, 600);
+			});
+    		
+</script>
+	</body>
+
+</html>
