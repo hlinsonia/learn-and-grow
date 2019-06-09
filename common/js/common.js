@@ -37,7 +37,7 @@ const init = function () {
   };
   this.data = {
     bartitle: '',
-    title: '太郎花子婚纱摄影',    
+    title: '',    
     'dressactive': 0,
     'styleactive': 0,
     'placeactive': 0,
